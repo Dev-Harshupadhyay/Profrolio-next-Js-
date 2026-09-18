@@ -1,13 +1,22 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/data/site";
+import { profile } from "@/data/profile";
+import { projects } from "@/data/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const projectEntries: MetadataRoute.Sitemap = projects.map((project) => ({
+    url: `${profile.url}/projects/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     {
-      url: site.url,
+      url: profile.url,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 1,
+      priority: 1.0,
     },
+    ...projectEntries,
   ];
 }
