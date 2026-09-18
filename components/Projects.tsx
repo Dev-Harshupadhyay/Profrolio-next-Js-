@@ -1,209 +1,91 @@
-"use client";
+import Image from "next/image";
+import { ExternalLink, Github, Sparkles } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import { projects } from "@/data/site";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronDown, ExternalLink } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import ProjectDetailModal from "@/components/ProjectDetailModal";
-import { projectsData } from "@/data/projects";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { preloadImages } from "@/lib/imagePreloader";
-
-const Projects = () => {
-  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation();
-  const isMobile = useIsMobile();
-  const [filter, setFilter] = useState("all");
-  const [selectedProject, setSelectedProject] = useState<any>(null);
-  const pageSize = isMobile ? 3 : 6;
-  const [visibleCount, setVisibleCount] = useState(pageSize);
-  const preloaded = useRef<Set<string>>(new Set());
-
-  const projects = projectsData;
-
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((p) => p.category === filter);
-
-  // Display featured projects first, then keep the exact order from projectsData.
-  // To reorder projects, simply move items up/down in src/data/projects.ts.
-  const displayedProjects = filteredProjects.slice().sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return projects.indexOf(a) - projects.indexOf(b);
-  });
-
-  // Reset pagination when filter/device changes
-  useEffect(() => {
-    setVisibleCount(pageSize);
-  }, [filter, pageSize]);
-
-  const visibleProjects = useMemo(
-    () => displayedProjects.slice(0, visibleCount),
-    [displayedProjects, visibleCount]
-  );
-
-  const canShowMore = visibleCount < displayedProjects.length;
-  const nextBatch = useMemo(
-    () => displayedProjects.slice(visibleCount, visibleCount + pageSize),
-    [displayedProjects, visibleCount, pageSize]
-  );
-
-  const preloadOnce = (paths: string[]) => {
-    const toLoad = paths.filter((p) => p && !preloaded.current.has(p));
-    if (toLoad.length === 0) return;
-    toLoad.forEach((p) => preloaded.current.add(p));
-    preloadImages(toLoad);
-  };
-
-  const openProject = (project: any) => {
-    setSelectedProject(project);
-  };
-
-  const closeProject = () => setSelectedProject(null);
-
+export default function Projects() {
   return (
-    <section id="projects" ref={projectsRef} className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className={`mb-12 ${projectsVisible ? 'scroll-animate' : ''}`}>
-          <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-            Projects
-          </p>
-          <h2 className="text-5xl font-bold mb-8">Selected work</h2>
+    <section id="projects" className="py-24">
+      <div className="max-w-6xl mx-auto px-5">
+        <SectionHeading
+          eyebrow="projects"
+          title="Things I've Built"
+          sub="Real apps, live at public URLs, used by real people — not tutorial clones."
+        />
 
-          {/* Filter Tabs */}
-          <div className="flex justify-start overflow-x-auto pb-2 sm:pb-0">
-            <div className="inline-flex items-center bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-full p-1.5 border border-gray-200/60 dark:border-gray-700/30 shadow-sm min-w-max">
-            <button
-              onClick={() => setFilter("all")}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
-                filter === "all"
-                  ? "bg-foreground text-background shadow-sm"
-                  : "text-muted-foreground hover:text-foreground hover:bg-white/60 dark:hover:bg-gray-700/50"
-              }`}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((p) => (
+            <article
+              key={p.id}
+              className="card-hover group bg-base-900 border border-white/8 rounded-2xl overflow-hidden flex flex-col"
             >
-              All
-            </button>
-            <button
-              onClick={() => setFilter("web")}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
-                filter === "web"
-                  ? "bg-foreground text-background shadow-sm"
-                  : "text-muted-foreground hover:text-foreground hover:bg-white/60 dark:hover:bg-gray-700/50"
-              }`}
-            >
-              Web
-            </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleProjects.map((project, index) => (
-            <div
-              key={project.id}
-              onClick={() => openProject(project)}
-              className={`group glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer ${
-                projectsVisible ? `scroll-animate scroll-animate-delay-${Math.min(index % 3 + 1, 3)}` : ''
-              }`}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  openProject(project);
-                }
-              }}
-            >
-              <div className="relative overflow-hidden">
-                <span className="absolute top-4 left-4 z-10 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-3 py-1 rounded-full text-xs font-medium border border-gray-200 dark:border-gray-700">
-                  {project.category}
-                </span>
-                {project.featured && (
-                  <span className="absolute top-4 right-4 z-10 bg-yellow-400 dark:bg-yellow-500 text-gray-900 dark:text-gray-900 px-3 py-1 rounded-full text-xs font-medium">
-                    Featured
+              <div className="relative h-44 bg-base-800 overflow-hidden">
+                {p.image ? (
+                  <Image
+                    src={p.image}
+                    alt={`${p.title} — project screenshot`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-base-800 to-base-700">
+                    <span className="font-mono text-4xl text-accent/30 font-bold">
+                      {p.title.slice(0, 2)}
+                    </span>
+                  </div>
+                )}
+                {p.highlight && (
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 bg-base-950/85 backdrop-blur text-accent-soft text-[11px] font-mono px-2.5 py-1 rounded-full border border-accent/20">
+                    <Sparkles size={11} /> {p.highlight}
                   </span>
                 )}
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-300 bg-gray-100 dark:bg-gray-800"
-                />
               </div>
 
-              <div className="p-6 space-y-4">
-                <h3 className="text-2xl font-bold">{project.title}</h3>
-                <p className="text-muted-foreground line-clamp-2">
-                  {project.description}
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="text-lg font-semibold text-white">{p.title}</h3>
+                <p className="mt-2 text-sm text-slate-400 leading-relaxed flex-1">
+                  {p.description}
                 </p>
 
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                      Tech Stack
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2 py-1 bg-secondary rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                      {project.tags.length > 3 && (
-                        <span className="text-xs px-2 py-1 bg-secondary rounded-full">
-                          +{project.tags.length - 3}
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                <ul className="mt-4 flex flex-wrap gap-1.5">
+                  {p.tags.map((t) => (
+                    <li
+                      key={t}
+                      className="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
 
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      openProject(project);
-                    }}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:gap-3 transition-all"
-                  >
-                    View Project
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
+                <div className="mt-5 flex items-center gap-3">
+                  {p.liveUrl && (
+                    <a
+                      href={p.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-soft transition-colors"
+                    >
+                      <ExternalLink size={15} /> Live
+                    </a>
+                  )}
+                  {p.githubUrl && (
+                    <a
+                      href={p.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
+                    >
+                      <Github size={15} /> Code
+                    </a>
+                  )}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
-
-        {/* Show more */}
-        {canShowMore && (
-          <div className="mt-10 flex justify-center">
-            <button
-              type="button"
-              onMouseEnter={() => preloadOnce(nextBatch.map((p) => p.image))}
-              onFocus={() => preloadOnce(nextBatch.map((p) => p.image))}
-              onTouchStart={() => preloadOnce(nextBatch.map((p) => p.image))}
-              onClick={() =>
-                setVisibleCount((c) => Math.min(c + pageSize, displayedProjects.length))
-              }
-              className="inline-flex items-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary/80 transition-colors"
-              aria-label="Show more projects"
-            >
-              Show more
-              <ChevronDown className="h-4 w-4" />
-            </button>
-          </div>
-        )}
       </div>
-
-      {/* Project Modal */}
-      {selectedProject && (
-        <ProjectDetailModal project={selectedProject} isOpen={Boolean(selectedProject)} onClose={closeProject} />
-      )}
     </section>
   );
-};
-
-export default Projects;
+}

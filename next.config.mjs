@@ -1,13 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    // Build time par ESLint errors ignore karne ke liye
-    ignoreDuringBuilds: true,
+  reactStrictMode: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
   },
-  typescript: {
-    // Build time par minor TS errors ignore karne ke liye
-    ignoreBuildErrors: true,
-  },
+  poweredByHeader: false,
 };
 
 export default nextConfig;

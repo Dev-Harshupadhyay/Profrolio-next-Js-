@@ -1,129 +1,54 @@
-"use client";
+import SectionHeading from "./SectionHeading";
+import { site } from "@/data/site";
 
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-const About = () => {
-  const { ref: aboutRef, isVisible: aboutVisible } = useScrollAnimation();
-  
-  const skills = {
-    fullstack: [
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "MySQL",
-      "TailwindCSS",
-      "REST API Design",
-    ],
-    learning: [
-      "C++",
-      "Python",
-      "Data Structures",
-      "Algorithms",
-      "Next.js",
-    ],
-    tools: [
-      "Git",
-      "GitHub",
-      "Postman",
-      "VS Code",
-      "Vercel",
-      "Netlify",
-    ],
-  };
-
+export default function About() {
   return (
-    <section id="about" ref={aboutRef} className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Content */}
-          <div className={`space-y-8 ${aboutVisible ? 'scroll-animate' : ''}`}>
-            <div>
-              <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                About Me
-              </p>
-              <h2 className="text-5xl font-bold mb-8">My background</h2>
-            </div>
+    <section id="about" className="py-24">
+      <div className="max-w-6xl mx-auto px-5">
+        <SectionHeading eyebrow="about" title="About Me" />
 
-            <div className="space-y-6 text-lg text-muted-foreground">
-              <p>
-                I'm currently a <span className="font-bold text-black dark:text-white">BCA (Bachelor of Computer Applications) 1st semester</span> student, and a self-taught, passionate full-stack web developer. I started learning to code out of pure curiosity, and instead of waiting to "finish a course" before building something, I jumped straight into real projects and figured things out along the way.
-              </p>
-
-              <p>
-                Over the past while, I've built and shipped multiple full-stack web apps — from movie discovery platforms to weather intelligence dashboards — using <span className="font-bold text-black dark:text-white">React, Node.js, Express and MongoDB</span>. Each project has taught me something new, whether it's structuring a clean API, handling real-time data, or just getting the little UI details right.
-              </p>
-
-              <p>
-                I'm at the very start of my formal computer science education, but I already know this is what I want to keep doing. I approach every project with curiosity and a genuine eagerness to learn, and I'm excited for everything the next few years of college — and building — will teach me.
-              </p>
-            </div>
-
+        <div className="grid md:grid-cols-[1.4fr_1fr] gap-10">
+          <div className="space-y-5 text-slate-400 leading-relaxed">
+            <p>
+              I&apos;m <span className="text-white font-medium">Harsh Upadhyay</span> — a{" "}
+              <span className="text-white font-medium">BCA student</span> and full-stack
+              developer from {site.location}. My GitHub has been my workshop since
+              January 2025: <span className="text-accent">40+ public repositories</span> and{" "}
+              <span className="text-accent">1,076 contributions</span> in 2026 alone.
+            </p>
+            <p>
+              Most of my work lives on the front end, because I like things you can open
+              in a tab and actually use — a movie site someone can browse, a weather app
+              someone checks before leaving the house, a Telegram bot that quietly
+              automates a boring job. If it runs at a public URL and a real person can
+              use it, I&apos;m interested.
+            </p>
+            <p>
+              I&apos;m not the kind of developer who collects finished tutorials. Most of
+              what I know, I learned by breaking things and then having to fix them.
+              That&apos;s still how I work:{" "}
+              <span className="text-white">
+                build it badly, understand why it&apos;s bad, rebuild it properly.
+              </span>
+            </p>
+            <blockquote className="border-l-2 border-accent pl-4 font-mono text-sm text-slate-500 italic">
+              &quot;{site.quote}&quot;
+            </blockquote>
           </div>
 
-          {/* Right Content - Skills Card */}
-          <div className={`glass-card rounded-3xl p-8 shadow-xl ${aboutVisible ? 'scroll-animate scroll-animate-delay-2' : ''}`}>
-            <h3 className="text-2xl font-bold mb-8">Skills & Expertise</h3>
-
-            <div className="space-y-8">
-              {/* Software & Full-Stack Development */}
-              <div>
-                <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  Software & Full-Stack Development
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.fullstack.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white rounded-full text-sm font-medium border border-border hover:border-black dark:hover:border-white transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+          <div className="grid grid-cols-2 gap-4 content-start">
+            {site.stats.map((s) => (
+              <div
+                key={s.label}
+                className="card-hover bg-base-900 border border-white/8 rounded-2xl p-5 text-center"
+              >
+                <p className="text-2xl sm:text-3xl font-bold text-gradient font-mono">{s.value}</p>
+                <p className="mt-1 text-xs text-slate-500 uppercase tracking-wide">{s.label}</p>
               </div>
-
-              {/* Currently Learning */}
-              <div>
-                <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  Currently Learning
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.learning.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white rounded-full text-sm font-medium border border-border hover:border-black dark:hover:border-white transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Developer Tools & Ecosystem */}
-              <div>
-                <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  Developer Tools & Ecosystem
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.tools.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white rounded-full text-sm font-medium border border-border hover:border-black dark:hover:border-white transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}
