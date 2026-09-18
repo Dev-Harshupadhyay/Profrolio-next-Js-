@@ -7,13 +7,17 @@ import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { Services } from "@/components/Services";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { SpotlightCursor } from "@/components/SpotlightCursor";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-apple-bg-light dark:bg-apple-bg-dark text-neutral-900 dark:text-neutral-100 flex flex-col">
+    <div className="min-h-screen bg-apple-bg-light dark:bg-apple-bg-dark text-neutral-900 dark:text-neutral-100 flex flex-col relative overflow-hidden">
+      {/* 3D Ambient Spotlight Cursor */}
+      <SpotlightCursor />
+
       <Navbar />
 
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full relative z-10">
         <Hero />
         <About />
         <Skills />
