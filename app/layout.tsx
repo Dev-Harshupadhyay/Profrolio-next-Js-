@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Caveat } from "next/font/google";
+import { Inter, JetBrains_Mono, Caveat, Fraunces, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/data/profile";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -19,6 +19,18 @@ const mono = JetBrains_Mono({
 const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-hand",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const devanagari = Noto_Sans_Devanagari({
+  subsets: ["devanagari"],
+  variable: "--font-devanagari",
   display: "swap",
 });
 
@@ -159,7 +171,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${mono.variable} ${caveat.variable} scroll-smooth`}
+      className={`${inter.variable} ${mono.variable} ${caveat.variable} ${fraunces.variable} ${devanagari.variable} scroll-smooth`}
     >
       <body className="antialiased font-sans">
         <script

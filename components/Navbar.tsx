@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { ArrowRight, Menu } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { MobileMenu } from "./MobileMenu";
@@ -120,13 +119,13 @@ export function Navbar() {
           />
 
           {/* Left — Logo */}
-          <Link
-            href="#hero"
-            className="text-xl font-bold z-10 flex-shrink-0 tracking-tight"
+          <a
+            href="/"
+            className="text-xl font-bold z-10 flex-shrink-0 tracking-tight active:scale-95 transition-transform duration-200"
           >
             <span className="text-neutral-900 dark:text-white whitespace-nowrap">harsh</span>
             <span className="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">.dev</span>
-          </Link>
+          </a>
 
           {/* Center — Mouse-tracking eyes */}
           <div className="hidden min-[915px]:flex items-center gap-1.5 z-10 flex-1 justify-center mx-4">
@@ -197,7 +196,7 @@ export function Navbar() {
                 type="button"
                 aria-label="Open menu"
                 onClick={() => setMobileMenuOpen(true)}
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 text-neutral-800 dark:text-white hover:bg-black/10 dark:hover:bg-white/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 text-neutral-800 dark:text-white hover:bg-black/10 dark:hover:bg-white/20 active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               >
                 <Menu className="h-5 w-5" />
               </button>

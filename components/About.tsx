@@ -28,16 +28,16 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative w-full bg-gradient-to-br from-lime-300 via-lime-400 to-lime-500 pt-20 sm:pt-24 pb-28 sm:pb-36 px-6 md:px-12 overflow-hidden"
+      className="relative w-full bg-gradient-to-br from-lime-300 via-lime-400 to-lime-500 dark:from-[#0e1405] dark:via-[#0a0f06] dark:to-[#131a0a] pt-20 sm:pt-24 pb-28 sm:pb-36 px-6 md:px-12 overflow-hidden transition-colors duration-500"
     >
       {/* Ambient pulsing stars */}
-      <div className="absolute top-10 right-10 md:right-20 text-black/20 animate-pulse pointer-events-none" aria-hidden="true">
+      <div className="absolute top-10 right-10 md:right-20 text-black/20 dark:text-lime-300/30 animate-pulse pointer-events-none" aria-hidden="true">
         <svg className="w-14 h-14" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z" />
         </svg>
       </div>
       <div
-        className="absolute bottom-36 left-4 md:left-20 text-black/20 animate-pulse pointer-events-none"
+        className="absolute bottom-36 left-4 md:left-20 text-black/20 dark:text-lime-300/30 animate-pulse pointer-events-none"
         style={{ animationDelay: "1s" }}
         aria-hidden="true"
       >
@@ -61,8 +61,8 @@ export function About() {
             className="relative flex justify-center w-full"
           >
             {/* Hanging strap + hook clip */}
-            <div className="absolute -top-24 left-1/2 w-3 h-28 bg-neutral-900 -translate-x-1/2 shadow-inner z-0" aria-hidden="true" />
-            <div className="absolute -top-6 left-1/2 w-6 h-12 bg-neutral-200 rounded border border-neutral-300 -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.25)]" aria-hidden="true" />
+            <div className="absolute -top-24 left-1/2 w-3 h-28 bg-neutral-900 dark:bg-neutral-600 -translate-x-1/2 shadow-inner z-0" aria-hidden="true" />
+            <div className="absolute -top-6 left-1/2 w-6 h-12 bg-neutral-200 dark:bg-neutral-400 rounded border border-neutral-300 dark:border-neutral-500 -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.25)]" aria-hidden="true" />
 
             {/* White gallery frame */}
             <div className="bg-white w-full max-w-[300px] rounded-[1.75rem] p-3.5 shadow-[0_28px_60px_rgba(0,0,0,0.35)] relative z-20 -rotate-3 hover:rotate-0 transition-transform duration-500">
@@ -117,15 +117,15 @@ export function About() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex-1 relative z-20 mt-4 md:mt-10"
         >
-          <span className="inline-block border border-black/15 bg-white/70 backdrop-blur-md rounded-full px-5 py-1.5 text-sm font-semibold text-neutral-800 mb-6 shadow-sm">
+          <span className="inline-block border border-black/15 dark:border-lime-400/30 bg-white/70 dark:bg-white/10 backdrop-blur-md rounded-full px-5 py-1.5 text-sm font-semibold text-neutral-800 dark:text-lime-300 mb-6 shadow-sm">
             About Me
           </span>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-neutral-950 leading-[1.1] mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display text-neutral-950 dark:text-white leading-[1.1] mb-6 tracking-tight">
             My background
           </h2>
 
-          <p className="text-lg leading-relaxed text-neutral-800 mb-6">
+          <p className="text-lg leading-relaxed text-neutral-800 dark:text-neutral-200 mb-6">
             Hi, my name is{" "}
             <span className="text-lime-950 text-xl mx-1 tracking-wide uppercase font-bold bg-white px-2.5 py-0.5 rounded-md shadow-md whitespace-nowrap">
               Harsh Upadhyay
@@ -133,7 +133,7 @@ export function About() {
             — I build clean, fast, and genuinely tactile web products.
           </p>
 
-          <div className="space-y-4 text-base leading-relaxed text-neutral-700">
+          <div className="space-y-4 text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
             <p>
               I&apos;m a self-taught full-stack developer and BCA student from
               Faridabad, India. I turn rough ideas into fast, reliable products
@@ -157,14 +157,14 @@ export function About() {
             {attributes.map((attr) => (
               <div
                 key={attr.label}
-                className="flex items-center gap-3 p-4 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 hover:bg-white hover:-translate-y-1 transition-all shadow-sm"
+                className="flex items-center gap-3 p-4 rounded-2xl bg-white/70 dark:bg-white/10 backdrop-blur-md border border-white/80 dark:border-white/15 hover:bg-white dark:hover:bg-white/[0.16] hover:-translate-y-1 transition-all shadow-sm"
               >
-                <div className="w-9 h-9 rounded-xl bg-lime-500/20 text-lime-700 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-lime-500/20 dark:bg-lime-400/20 text-lime-700 dark:text-lime-300 flex items-center justify-center shrink-0">
                   {attr.icon}
                 </div>
                 <div className="flex flex-col text-xs">
-                  <span className="font-bold text-neutral-900">{attr.label}</span>
-                  <span className="text-neutral-600">{attr.value}</span>
+                  <span className="font-bold text-neutral-900 dark:text-white">{attr.label}</span>
+                  <span className="text-neutral-600 dark:text-neutral-400">{attr.value}</span>
                 </div>
               </div>
             ))}
@@ -174,7 +174,7 @@ export function About() {
             href={profile.socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-7 px-5 py-2.5 rounded-full text-sm font-bold bg-neutral-950 text-white hover:bg-neutral-800 shadow-lg hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 mt-7 px-5 py-2.5 rounded-full text-sm font-bold bg-neutral-950 text-white dark:bg-lime-400 dark:text-neutral-950 hover:bg-neutral-800 dark:hover:bg-lime-300 shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
           >
             <span>GitHub Profile</span>
             <ExternalLink className="w-4 h-4" />

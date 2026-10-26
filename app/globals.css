@@ -125,3 +125,76 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- Preloader (flame-style logo pan-in + mantra reveal) ---------- */
+@keyframes preloader-logo-pan-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 42vh, 0) scale(0.99);
+  }
+  60% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+    transform: translate3d(0, -6px, 0) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.animate-preloader-logo-in {
+  will-change: transform, opacity;
+  animation: preloader-logo-pan-in 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes mantra-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+    letter-spacing: 0.45em;
+    filter: blur(6px);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.18em;
+    filter: blur(0);
+  }
+}
+
+.animate-mantra-in {
+  animation: mantra-reveal 900ms cubic-bezier(0.2, 0.8, 0.2, 1) 450ms both;
+}
+
+@keyframes mantra-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.animate-mantra-breathe {
+  animation: mantra-breathe 1.6s ease-in-out 1.4s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-preloader-logo-in,
+  .animate-mantra-in,
+  .animate-mantra-breathe {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    letter-spacing: normal !important;
+  }
+}

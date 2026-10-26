@@ -97,14 +97,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-semibold tracking-tight text-neutral-900 dark:text-white leading-[1.12]">
             {project.title}
           </h1>
           <p className="mt-2 text-lg sm:text-xl text-sky-600 dark:text-sky-400 font-medium">
             {project.subtitle}
           </p>
 
-          <p className="mt-5 text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed font-normal max-w-3xl">
+          <p className="mt-5 text-[17px] sm:text-[19px] text-neutral-700 dark:text-neutral-300 leading-[1.8] font-normal max-w-3xl">
             {project.description}
           </p>
 
@@ -155,7 +155,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 <div className="p-4 rounded-3xl bg-white/5 border border-white/10 shadow-2xl">
                   {fallbackIcons[project.id] || <Music className="w-12 h-12 text-amber-400" />}
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold">{project.title}</h2>
+                <h2 className="text-2xl sm:text-3xl font-display font-semibold">{project.title}</h2>
                 <p className="text-xs sm:text-sm text-neutral-400 max-w-md">
                   {project.tagline}
                 </p>
@@ -175,7 +175,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               key={metric.label}
               className="p-5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-white/10 shadow-sm"
             >
-              <span className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white block">
+              <span className="text-2xl sm:text-3xl font-display font-semibold text-neutral-900 dark:text-white block">
                 {metric.value}
               </span>
               <span className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1 block">
@@ -193,10 +193,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               <div className="w-9 h-9 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center mb-4">
                 <Activity className="w-4 h-4" />
               </div>
-              <h3 className="text-xl font-bold text-neutral-900 dark:text-white tracking-tight mb-3">
+              <h3 className="text-xl font-display font-semibold text-neutral-900 dark:text-white tracking-tight mb-3">
                 The Problem
               </h3>
-              <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal">
+              <p className="text-[16.5px] leading-[1.8] text-neutral-700 dark:text-neutral-300 font-normal">
                 {project.problem}
               </p>
             </div>
@@ -205,10 +205,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-4">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
-              <h3 className="text-xl font-bold text-neutral-900 dark:text-white tracking-tight mb-3">
+              <h3 className="text-xl font-display font-semibold text-neutral-900 dark:text-white tracking-tight mb-3">
                 The Solution
               </h3>
-              <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal">
+              <p className="text-[16.5px] leading-[1.8] text-neutral-700 dark:text-neutral-300 font-normal">
                 {project.solution}
               </p>
             </div>
@@ -216,7 +216,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Key Features */}
           <div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white tracking-tight mb-6">
+            <h3 className="text-2xl sm:text-3xl font-display font-semibold text-neutral-900 dark:text-white tracking-tight mb-6">
               Key Engineering Features
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -231,7 +231,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       {feature.title}
                     </h4>
                   </div>
-                  <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal pl-6">
+                  <p className="text-[15px] leading-[1.7] text-neutral-600 dark:text-neutral-400 font-normal pl-6">
                     {feature.description}
                   </p>
                 </div>
@@ -243,7 +243,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-white/10">
             <div className="flex items-center gap-2 mb-4">
               <Layers className="w-5 h-5 text-sky-500" />
-              <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-display font-semibold text-neutral-900 dark:text-white tracking-tight">
                 System Architecture
               </h3>
             </div>
@@ -278,10 +278,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Technical Challenges & Solutions */}
           <div className="p-6 sm:p-8 rounded-3xl bg-neutral-100/70 dark:bg-neutral-900/50 border border-neutral-200/80 dark:border-white/10">
-            <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white tracking-tight mb-2">
+            <h3 className="text-lg sm:text-xl font-display font-semibold text-neutral-900 dark:text-white tracking-tight mb-2">
               Technical Challenges &amp; Overcoming Hurdles
             </h3>
-            <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed font-normal">
+            <p className="text-[16.5px] leading-[1.8] text-neutral-700 dark:text-neutral-300 font-normal">
               {project.challenges}
             </p>
           </div>
@@ -298,7 +298,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
                   Next Project
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-display font-semibold text-neutral-900 dark:text-white mt-1 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
                   {nextProject.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-0.5">

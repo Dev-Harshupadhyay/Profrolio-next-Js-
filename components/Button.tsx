@@ -93,7 +93,7 @@ export function Button({
       "p-2 h-10 w-10 justify-center rounded-full bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 border border-neutral-200/80 dark:border-white/10 text-neutral-700 dark:text-neutral-300 shadow-[0_2px_0_0_rgba(0,0,0,0.08)] dark:shadow-[0_2px_0_0_rgba(255,255,255,0.08)] active:translate-y-0.5 active:shadow-none",
   }[variant];
 
-  const baseClasses = `group relative inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 select-none cursor-pointer disabled:opacity-50 disabled:pointer-events-none transform-gpu ${
+  const baseClasses = `group relative inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 select-none cursor-pointer disabled:opacity-50 disabled:pointer-events-none transform-gpu ${
     variant === "icon" ? "" : sizeClasses
   } ${variantClasses} ${className}`;
 

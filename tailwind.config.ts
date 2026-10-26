@@ -49,6 +49,9 @@ const config: Config = {
         },
       },
       fontFamily: {
+      display: ["var(--font-display)", "Georgia", "serif"],
+      hand: ["var(--font-hand)", "cursive"],
+      devanagari: ["var(--font-devanagari)", "serif"],
         sans: [
           "-apple-system",
           "BlinkMacSystemFont",
