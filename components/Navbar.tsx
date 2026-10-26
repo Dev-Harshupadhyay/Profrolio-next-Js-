@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Menu } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 import { MobileMenu } from "./MobileMenu";
 
 const navLinks = [
@@ -102,17 +103,17 @@ export function Navbar() {
         <nav
           className={`pointer-events-auto mx-auto px-4 sm:px-8 py-4 flex items-center relative transition-all duration-300 overflow-hidden ${
             isScrolled
-              ? "max-w-[85em] rounded-full backdrop-blur-xl bg-black/70 border border-white/10 shadow-lg shadow-black/40"
-              : "max-w-full rounded-none backdrop-blur-xl bg-black/60 border-b border-white/10 shadow-none"
+              ? "max-w-[85em] rounded-full backdrop-blur-xl bg-white/70 dark:bg-black/70 border border-black/10 dark:border-white/10 shadow-lg shadow-black/10 dark:shadow-black/40"
+              : "max-w-full rounded-none backdrop-blur-xl bg-white/70 dark:bg-black/70 border-b border-black/10 dark:border-white/10 shadow-none"
           }`}
         >
           {/* Scroll progress underline */}
           <div
-            className="absolute bottom-0 left-0 h-[3px] rounded-b-full z-[5] bg-white transition-all duration-300 ease-out"
+            className="absolute bottom-0 left-0 h-[3px] rounded-b-full z-[5] bg-black dark:bg-white transition-all duration-300 ease-out"
             style={{
               width: `${scrollProgress * 100}%`,
               opacity: isScrolled ? 1 : 0,
-              boxShadow: "0 0 6px rgba(255,255,255,0.35)",
+              boxShadow: "0 0 6px rgba(0,0,0,0.25)",
               transition: "width 0.25s ease-out, opacity 0.3s ease",
             }}
             aria-hidden="true"
@@ -123,8 +124,8 @@ export function Navbar() {
             href="#hero"
             className="text-xl font-bold z-10 flex-shrink-0 tracking-tight"
           >
-            <span className="text-white whitespace-nowrap">harsh</span>
-            <span className="text-neutral-400 whitespace-nowrap">.dev</span>
+            <span className="text-neutral-900 dark:text-white whitespace-nowrap">harsh</span>
+            <span className="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">.dev</span>
           </Link>
 
           {/* Center — Mouse-tracking eyes */}
@@ -170,18 +171,19 @@ export function Navbar() {
                   href={link.href}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     activeSection === link.section
-                      ? "bg-white text-black"
-                      : "text-neutral-300 hover:bg-white/10 hover:text-white"
+                      ? "bg-neutral-900 text-white dark:bg-white dark:text-black"
+                      : "text-neutral-600 dark:text-neutral-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-neutral-900 dark:hover:text-white"
                   }`}
                 >
                   {link.name}
                 </a>
               ))}
+              <ThemeToggle className="ml-1" />
               <a
                 href="https://tally.so/r/QKpNqX"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-semibold bg-white text-black hover:bg-neutral-200 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="ml-1 inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-semibold bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 Let&apos;s talk
                 <ArrowRight className="w-4 h-4" />
@@ -190,11 +192,12 @@ export function Navbar() {
 
             {/* Mobile — Hamburger → slide-in sheet */}
             <div className="flex min-[915px]:hidden items-center gap-2">
+              <ThemeToggle />
               <button
                 type="button"
                 aria-label="Open menu"
                 onClick={() => setMobileMenuOpen(true)}
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 text-neutral-800 dark:text-white hover:bg-black/10 dark:hover:bg-white/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               >
                 <Menu className="h-5 w-5" />
               </button>

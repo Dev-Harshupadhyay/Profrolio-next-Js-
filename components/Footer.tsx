@@ -44,9 +44,6 @@ export function Footer() {
             <a href="#projects" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               Projects
             </a>
-            <a href="#experience" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-              Timeline
-            </a>
             <a href="#services" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               Services
             </a>

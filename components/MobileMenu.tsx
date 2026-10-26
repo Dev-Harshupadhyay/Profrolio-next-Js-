@@ -72,7 +72,7 @@ export function MobileMenu({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-y-0 right-0 z-[9999] h-full bg-[#0a0a0c] border-l border-white/10 shadow-2xl overflow-y-auto"
+            className="fixed inset-y-0 right-0 z-[9999] h-full bg-white dark:bg-[#0a0a0c] border-l border-black/10 dark:border-white/10 shadow-2xl overflow-y-auto"
             style={{ width: "min(85vw, 400px)", maxWidth: "400px" }}
           >
             <div className="p-6 h-full w-full">
@@ -80,17 +80,17 @@ export function MobileMenu({
                 type="button"
                 onClick={onClose}
                 aria-label="Close menu"
-                className="absolute right-4 top-4 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                className="absolute right-4 top-4 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-neutral-800 dark:text-white transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
 
               <div className="pt-12 w-full">
-                <p className="text-xl font-bold mb-1 text-white">
+                <p className="text-xl font-bold mb-1 text-neutral-900 dark:text-white">
                   <span>harsh</span>
-                  <span className="text-neutral-400">.dev</span>
+                  <span className="text-neutral-500 dark:text-neutral-400">.dev</span>
                 </p>
-                <p className="text-sm text-neutral-400 mb-6">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-6">
                   Navigate to different sections
                 </p>
 
@@ -102,8 +102,8 @@ export function MobileMenu({
                       onClick={onClose}
                       className={`px-4 py-3 rounded-lg text-base font-medium transition-all ${
                         activeSection === link.section
-                          ? "bg-white text-black"
-                          : "text-neutral-200 hover:bg-white/10 hover:text-white"
+                          ? "bg-neutral-900 text-white dark:bg-white dark:text-black"
+                          : "text-neutral-700 dark:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/10 hover:text-neutral-900 dark:hover:text-white"
                       }`}
                     >
                       {link.name}
@@ -115,7 +115,7 @@ export function MobileMenu({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={onClose}
-                    className="mt-4 w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-semibold bg-white text-black hover:bg-neutral-200 transition-all"
+                    className="mt-4 w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-semibold bg-neutral-900 text-white dark:bg-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all"
                   >
                     Let&apos;s talk
                     <ArrowRight className="w-4 h-4" />
@@ -123,13 +123,13 @@ export function MobileMenu({
                 </nav>
 
                 {/* Socials row */}
-                <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
+                <div className="mt-8 pt-6 border-t border-black/10 dark:border-white/10 flex items-center gap-3">
                   <a
                     href={profile.socials.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub"
-                    className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                    className="p-2.5 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-neutral-800 dark:text-white transition-colors"
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -138,14 +138,14 @@ export function MobileMenu({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
-                    className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                    className="p-2.5 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-neutral-800 dark:text-white transition-colors"
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
                   <a
                     href={`mailto:${profile.email}`}
                     aria-label="Email"
-                    className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                    className="p-2.5 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-neutral-800 dark:text-white transition-colors"
                   >
                     <Mail className="w-4 h-4" />
                   </a>

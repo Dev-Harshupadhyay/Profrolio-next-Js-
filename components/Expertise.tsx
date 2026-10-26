@@ -117,23 +117,23 @@ const TagCard = ({
         className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center ${
           isActive
             ? "bg-gradient-to-br from-[#4f46e5] via-[#6366f1] to-[#8b5cf6] border-2 border-white/40 shadow-[0_20px_50px_rgba(99,102,241,0.45)]"
-            : "bg-neutral-900 border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.07)]"
+            : "bg-white border border-neutral-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] dark:bg-neutral-900 dark:border-white/10 dark:shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
         }`}
       >
         {/* The hole punch */}
-        <div className="w-5 h-5 bg-gradient-to-br from-neutral-600 to-neutral-800 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] absolute top-4 border border-neutral-600 z-10 flex items-center justify-center">
-          <div className="w-2 h-2 bg-black rounded-full opacity-40" />
+        <div className="w-5 h-5 bg-gradient-to-br from-neutral-200 to-neutral-400 dark:from-neutral-600 dark:to-neutral-800 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] dark:shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] absolute top-4 border border-neutral-300 dark:border-neutral-600 z-10 flex items-center justify-center">
+          <div className="w-2 h-2 bg-black/40 dark:bg-black/60 rounded-full" />
         </div>
 
         {/* Inner container */}
         <div
           className={`w-full h-full rounded-[1.5rem] mt-8 p-8 flex flex-col min-h-[220px] transition-colors duration-700 ${
-            isActive ? "bg-black/25" : "bg-white/[0.04]"
+            isActive ? "bg-black/25" : "bg-[#f4f4f4] dark:bg-white/[0.04]"
           }`}
         >
           <span
             className={`font-serif italic text-xl mb-2 transition-colors duration-700 ${
-              isActive ? "text-white/70" : "text-neutral-500"
+              isActive ? "text-white/70" : "text-neutral-400 dark:text-neutral-500"
             }`}
           >
             {number}
@@ -141,7 +141,7 @@ const TagCard = ({
 
           <h3
             className={`text-2xl mb-3 tracking-tight font-semibold transition-colors duration-700 ${
-              isActive ? "text-white" : "text-white"
+              isActive ? "text-white" : "text-neutral-900 dark:text-white"
             }`}
           >
             {title}
@@ -149,7 +149,7 @@ const TagCard = ({
 
           <p
             className={`text-sm leading-relaxed transition-colors duration-700 ${
-              isActive ? "text-white/85" : "text-neutral-400"
+              isActive ? "text-white/85" : "text-neutral-500 dark:text-neutral-400"
             }`}
           >
             {text}
@@ -178,12 +178,7 @@ export function Expertise() {
     <section
       id="expertise"
       ref={containerRef}
-      className="relative w-full pt-24 pb-32 px-6 md:px-12 overflow-hidden border-y border-white/5"
-      style={{
-        backgroundImage:
-          "linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)",
-        backgroundSize: "80px 80px",
-      }}
+      className="relative w-full pt-24 pb-32 px-6 md:px-12 overflow-hidden border-y border-black/5 dark:border-white/5 bg-[linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[length:80px_80px]"
     >
       <div className="max-w-6xl mx-auto relative md:h-[1350px]">
         {/* Header Content */}
@@ -194,17 +189,17 @@ export function Expertise() {
           transition={{ duration: 0.6 }}
           className="md:absolute top-10 left-0 md:w-[450px] z-20 mb-16 md:mb-0"
         >
-          <div className="inline-block border border-white/15 rounded-full px-5 py-1.5 text-sm text-neutral-300 mb-8 shadow-sm bg-white/5 backdrop-blur-md">
+          <div className="inline-block border border-black/10 dark:border-white/15 rounded-full px-5 py-1.5 text-sm text-neutral-600 dark:text-neutral-300 mb-8 shadow-sm bg-white/70 dark:bg-white/5 backdrop-blur-md">
             My Expertise
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 tracking-tight relative font-black">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-neutral-900 dark:text-white leading-[1.1] mb-6 tracking-tight relative font-black">
             Building Modern Digital Solutions with{" "}
             <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
               Code &amp; AI
             </span>
             {/* Hand-drawn arrow */}
             <svg
-              className="absolute -bottom-10 right-10 w-12 h-12 text-neutral-400 hidden md:block"
+              className="absolute -bottom-10 right-10 w-12 h-12 text-neutral-500 dark:text-neutral-400 hidden md:block"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -220,7 +215,7 @@ export function Expertise() {
               />
             </svg>
           </h2>
-          <p className="text-neutral-400 text-base md:text-lg max-w-sm leading-relaxed">
+          <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-lg max-w-sm leading-relaxed">
             Combining full-stack development, artificial intelligence, and cloud
             technologies to create scalable and impactful digital experiences.
           </p>
@@ -245,7 +240,7 @@ export function Expertise() {
           <path
             d={PATH_D}
             fill="none"
-            stroke="#4b5563"
+            stroke="#cbd5e1"
             strokeWidth="2"
             strokeDasharray="8 10"
           />
@@ -282,7 +277,7 @@ export function Expertise() {
           <path
             d="M 2,0 L 2,100"
             fill="none"
-            stroke="#4b5563"
+            stroke="#cbd5e1"
             strokeWidth="4"
             strokeDasharray="4 6"
             vectorEffect="non-scaling-stroke"
@@ -326,7 +321,7 @@ export function Expertise() {
 
           {/* Hand-drawn end text */}
           <div
-            className="hidden md:block absolute top-[1250px] left-[60%] text-3xl text-neutral-400 rotate-6 italic"
+            className="hidden md:block absolute top-[1250px] left-[60%] text-3xl text-neutral-500 dark:text-neutral-400 rotate-6 italic"
             style={{ fontFamily: "var(--font-hand), cursive" }}
           >
             Turning ideas into reality!

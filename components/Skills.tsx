@@ -87,12 +87,7 @@ export function Skills() {
     >
       {/* Subtle dot pattern background */}
       <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.09) 1.5px, transparent 1.5px)",
-          backgroundSize: "24px 24px",
-        }}
+        className="absolute inset-0 opacity-50 pointer-events-none bg-[radial-gradient(rgba(0,0,0,0.08)_1.5px,transparent_1.5px)] dark:bg-[radial-gradient(rgba(255,255,255,0.09)_1.5px,transparent_1.5px)] [background-size:24px_24px]"
         aria-hidden="true"
       />
 
@@ -104,10 +99,10 @@ export function Skills() {
           className="mb-16 md:mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-8"
         >
           <div>
-            <span className="inline-block text-xs text-sky-400 uppercase tracking-[0.15em] px-4 py-2 bg-sky-500/10 rounded-full mb-6 border border-sky-500/20 shadow-sm">
+            <span className="inline-block text-xs text-sky-600 dark:text-sky-400 uppercase tracking-[0.15em] px-4 py-2 bg-sky-500/10 rounded-full mb-6 border border-sky-500/20 shadow-sm">
               Technical Stack
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl text-white tracking-tight font-black">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl text-neutral-900 dark:text-white tracking-tight font-black">
               Tools of the{" "}
               <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
                 Trade
@@ -115,7 +110,7 @@ export function Skills() {
               .
             </h2>
           </div>
-          <p className="text-neutral-400 max-w-md text-base md:text-lg leading-relaxed">
+          <p className="text-neutral-600 dark:text-neutral-400 max-w-md text-base md:text-lg leading-relaxed">
             A curated selection of modern technologies and frameworks I use to
             build scalable, high-performance digital solutions.
           </p>
@@ -130,21 +125,21 @@ export function Skills() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
-              className={`group relative ${group.colSpan} ${group.tint} border rounded-[2rem] p-8 md:p-10 hover:shadow-2xl hover:shadow-black/40 transition-all duration-500 overflow-hidden flex flex-col justify-between will-change-transform`}
+              className={`group relative ${group.colSpan} ${group.tint} border rounded-[2rem] p-8 md:p-10 shadow-sm hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-black/40 transition-all duration-500 overflow-hidden flex flex-col justify-between will-change-transform`}
             >
               {/* Subtle hover reveal gradient */}
               <div
-                className="absolute inset-0 bg-white/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                className="absolute inset-0 bg-white/40 dark:bg-white/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 aria-hidden="true"
               />
 
               <div className="relative z-10 mb-10">
                 <h3
-                  className={`text-2xl md:text-3xl text-white mb-3 tracking-tight transition-colors duration-300 ${group.hoverAccent}`}
+                  className={`text-2xl md:text-3xl text-neutral-900 dark:text-white mb-3 tracking-tight transition-colors duration-300 ${group.hoverAccent}`}
                 >
                   {group.category}
                 </h3>
-                <p className="text-neutral-400 text-sm md:text-base leading-relaxed max-w-sm">
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm md:text-base leading-relaxed max-w-sm">
                   {group.description}
                 </p>
               </div>
@@ -153,7 +148,7 @@ export function Skills() {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 text-sm text-neutral-300 bg-white/[0.06] border border-white/10 shadow-sm rounded-xl hover:shadow-md hover:-translate-y-1 hover:text-white hover:border-white/25 transition-all duration-300 cursor-default"
+                    className="px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300 bg-white border border-black/5 dark:bg-white/[0.06] dark:border-white/10 shadow-sm rounded-xl hover:shadow-md hover:-translate-y-1 hover:text-neutral-900 dark:hover:text-white hover:border-black/15 dark:hover:border-white/25 transition-all duration-300 cursor-default"
                   >
                     {skill}
                   </span>

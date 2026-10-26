@@ -4,7 +4,6 @@ import { About } from "@/components/About";
 import { Expertise } from "@/components/Expertise";
 import { Skills } from "@/components/Skills";
 import { ProjectGrid } from "@/components/ProjectGrid";
-import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { Services } from "@/components/Services";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -24,7 +23,6 @@ export default function HomePage() {
         <Expertise />
         <Skills />
         <ProjectGrid />
-        <ExperienceTimeline />
         <Services />
         <Contact />
       </main>
