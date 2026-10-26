@@ -21,7 +21,6 @@ export interface Profile {
   socials: {
     github: string;
     linkedin: string;
-    telegram: string;
     email: string;
   };
   stats: {
@@ -64,7 +63,6 @@ export const profile: Profile = {
   socials: {
     github: "https://github.com/Dev-Harshupadhyay",
     linkedin: "https://www.linkedin.com/in/harsh-upadhyay-a014783b4",
-    telegram: "https://t.me/TIMEPASSQ_BOT",
     email: "mailto:harsh48227@gmail.com",
   },
   stats: [

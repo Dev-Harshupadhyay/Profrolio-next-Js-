@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Send, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { BackToTop } from "./BackToTop";
 import { profile } from "@/data/profile";
 
@@ -80,15 +80,6 @@ export function Footer() {
               className="hover:text-neutral-900 dark:hover:text-white transition-colors"
             >
               <Linkedin className="w-4 h-4" />
-            </a>
-            <a
-              href={profile.socials.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Telegram"
-              className="hover:text-neutral-900 dark:hover:text-white transition-colors"
-            >
-              <Send className="w-4 h-4" />
             </a>
             <a
               href={`mailto:${profile.email}`}

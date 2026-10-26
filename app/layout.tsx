@@ -113,7 +113,7 @@ const jsonLdPerson = {
     addressRegion: "Haryana",
     addressCountry: "IN",
   },
-  sameAs: [profile.socials.github, profile.socials.linkedin, profile.socials.telegram],
+  sameAs: [profile.socials.github, profile.socials.linkedin],
   knowsAbout: [
     "React",
     "Next.js",

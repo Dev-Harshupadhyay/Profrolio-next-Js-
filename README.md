@@ -13,8 +13,7 @@
 [**🌐 Live Site**](https://profrolio-next-js-three.vercel.app) ·
 [**📬 Contact Form (Tally)**](https://tally.so/r/QKpNqX) ·
 [**💼 LinkedIn**](https://www.linkedin.com/in/harsh-upadhyay-a014783b4) ·
-[**🐙 GitHub**](https://github.com/Dev-Harshupadhyay) ·
-[**✈️ Telegram**](https://t.me/TIMEPASSQ_BOT)
+[**🐙 GitHub**](https://github.com/Dev-Harshupadhyay)
 
 <a href="https://profrolio-next-js-three.vercel.app">
   <img src="public/og-cover.png" alt="Harsh Upadhyay — Designing. Building. Shipping. Open the live portfolio" width="100%">

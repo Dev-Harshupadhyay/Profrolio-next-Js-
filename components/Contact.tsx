@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   Mail,
-  Send,
   Linkedin,
   Github,
   Copy,
@@ -149,23 +148,6 @@ export function Contact() {
                         GitHub
                       </span>
                       <span className="text-neutral-500">40+ Repos</span>
-                    </div>
-                  </a>
-
-                  <a
-                    href={profile.socials.telegram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800/80 border border-neutral-200 dark:border-white/10 shadow-[0_3px_0_0_rgba(0,0,0,0.04)] dark:shadow-[0_3px_0_0_rgba(255,255,255,0.05)] flex items-center gap-3 hover:-translate-y-1 transition-all group sm:col-span-2"
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-[#229ED9]/10 text-[#229ED9] flex items-center justify-center shrink-0">
-                      <Send className="w-4 h-4" />
-                    </div>
-                    <div className="flex flex-col text-xs">
-                      <span className="font-bold text-neutral-900 dark:text-white group-hover:text-sky-500">
-                        Telegram (@TIMEPASSQ_BOT)
-                      </span>
-                      <span className="text-neutral-500">Direct message &amp; bots</span>
                     </div>
                   </a>
                 </div>

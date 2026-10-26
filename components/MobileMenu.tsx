@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowUpRight, Github, Linkedin, Send, Mail } from "lucide-react";
+import { X, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "@/data/profile";
 
@@ -172,15 +172,6 @@ export function MobileMenu({
                 className="p-2 rounded-full hover:text-neutral-900 dark:hover:text-white transition-colors"
               >
                 <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href={profile.socials.telegram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Telegram"
-                className="p-2 rounded-full hover:text-neutral-900 dark:hover:text-white transition-colors"
-              >
-                <Send className="w-4 h-4" />
               </a>
               <a
                 href={profile.socials.email}
