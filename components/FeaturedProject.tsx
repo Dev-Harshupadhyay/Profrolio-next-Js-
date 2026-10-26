@@ -34,12 +34,12 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
             {/* Left Column: Metadata & Editorial Content */}
             <div className="lg:col-span-6 flex flex-col justify-between">
               <div>
-                {/* Top Pill in 3D */}
+                {/* Top Pill */}
                 <Card3DItem z={25}>
                   <div className="flex items-center gap-2 mb-4">
                     <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/30 shadow-sm">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>Featured 3D Showcase</span>
+                      <span>Featured Project</span>
                     </span>
                     <span className="text-xs font-mono text-neutral-500 font-semibold">
                       {project.year} · {project.highlight}
@@ -47,7 +47,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
                   </div>
                 </Card3DItem>
 
-                {/* Title & Subtitle in 3D */}
+                {/* Title & Subtitle */}
                 <Card3DItem z={40}>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
                     {project.title}
@@ -64,7 +64,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
                   </p>
                 </Card3DItem>
 
-                {/* Key Metrics in 3D */}
+                {/* Key Metrics */}
                 <Card3DItem z={35}>
                   <div className="grid grid-cols-3 gap-2 sm:gap-3 my-6">
                     {project.metrics.slice(0, 3).map((metric) => (
@@ -105,7 +105,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
                     href={`/projects/${project.slug}`}
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 shadow-[0_4px_0_0_rgba(0,0,0,0.3)] dark:shadow-[0_4px_0_0_rgba(255,255,255,0.4)] active:translate-y-1 active:shadow-none hover:scale-105 transition-all"
                   >
-                    <span>3D Case Study</span>
+                    <span>View Case Study</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
 
@@ -136,7 +136,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
               </Card3DItem>
             </div>
 
-            {/* Right Column: 3D Visual Showcase Container */}
+            {/* Right Column: Visual Showcase Container */}
             <div className="lg:col-span-6">
               <Card3DItem z={45}>
                 <Link href={`/projects/${project.slug}`} className="block group/image">
@@ -203,7 +203,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
                         </div>
 
                         {project.id === "chhath-geet" ? (
-                          /* Simulated Audio 3D Waveform (Chhath Geet theme) */
+                          /* Simulated Audio Waveform (Chhath Geet theme) */
                           <div className="flex items-center gap-1.5 justify-center">
                             {[40, 70, 30, 90, 60, 100, 45, 80, 50, 95, 30, 65, 85, 40].map((h, i) => (
                               <div
@@ -224,7 +224,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
                     {/* Hover Overlay Hint */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
                       <span className="px-5 py-2.5 rounded-full text-xs font-bold bg-white text-neutral-950 shadow-xl scale-95 group-hover/image:scale-100 transition-transform">
-                        Launch 3D Case Study →
+                        Open Case Study →
                       </span>
                     </div>
                   </div>

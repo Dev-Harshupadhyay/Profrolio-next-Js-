@@ -16,7 +16,7 @@ import {
   Activity,
   Music,
   Play,
-  Bot,
+  Clapperboard,
   Calculator,
   Code2,
 } from "lucide-react";
@@ -57,7 +57,7 @@ export async function generateMetadata({
 }
 
 const fallbackIcons: Record<string, React.ReactNode> = {
-  "timepass-bot": <Bot className="w-12 h-12 text-emerald-400" />,
+  "timepass-premium": <Clapperboard className="w-12 h-12 text-rose-400" />,
   tarazu: <Calculator className="w-12 h-12 text-purple-400" />,
   nostalgic: <Code2 className="w-12 h-12 text-indigo-400" />,
 };

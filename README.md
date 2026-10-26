@@ -1,115 +1,152 @@
+<div align="center">
+
 # Harsh Upadhyay — Premium Developer Portfolio
 
-> **"Designing. Building. Shipping."**  
-> Modern digital experiences built with thoughtful design, powerful engineering, and obsessive attention to detail.
+**Designing. Building. Shipping.**
+
+[![Live](https://img.shields.io/badge/Live-Profrolio--next--js--three-2997ff?style=for-the-badge&logo=vercel&logoColor=white)](https://profrolio-next-js-three.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js_14-App_Router-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![License](https://img.shields.io/badge/License-©_2026_Harsh_Upadhyay-6366f1?style=for-the-badge)](#-license)
+
+[**🌐 Live Site**](https://profrolio-next-js-three.vercel.app) ·
+[**📬 Contact Form (Tally)**](https://tally.so/r/QKpNqX) ·
+[**💼 LinkedIn**](https://www.linkedin.com/in/harsh-upadhyay-a014783b4) ·
+[**🐙 GitHub**](https://github.com/Dev-Harshupadhyay) ·
+[**✈️ Telegram**](https://t.me/TIMEPASSQ_BOT)
+
+<a href="https://profrolio-next-js-three.vercel.app">
+  <img src="public/og-cover.png" alt="Harsh Upadhyay — Designing. Building. Shipping. Open the live portfolio" width="100%">
+</a>
+
+</div>
 
 ---
 
-## 🌟 Overview
+## 📣 What's in this commit — the "Solid Upgrade"
 
-An Apple-inspired developer portfolio designed for **Harsh Upadhyay** — Full-Stack Web Developer, React & Next.js specialist, and BCA student from India. Engineered from the ground up for minimalism, tactile feedback, sub-second performance, fluid micro-interactions, dark/light theme versatility, and comprehensive SEO.
+The latest push reworks the portfolio end-to-end on top of commit [`e0a6565`](https://github.com/Dev-Harshupadhyay/Profrolio-next-Js-/commit/e0a6565):
 
-- **Live URL**: [https://profrolio-next-js-three.vercel.app](https://profrolio-next-js-three.vercel.app)
-- **GitHub**: [@Dev-Harshupadhyay](https://github.com/Dev-Harshupadhyay)
-- **LinkedIn**: [Harsh Upadhyay](https://www.linkedin.com/in/harsh-upadhyay-a014783b4)
-- **Contact**: `harsh48227@gmail.com` | Telegram: `@TIMEPASSQ_BOT`
-
----
-
-## 💎 Design Philosophy & Highlights
-
-- **Apple-Inspired Product Aesthetic**: Restrained color palette (deep near-black `#050507` canvas, crisp `#f5f5f7` text, Apple accent blue `#2997ff` / `#0071e3`, off-white light mode `#fbfbfd`).
-- **Tactile Button System**: Reusable `Button` component with spring physics hover (`scale: 1.025`), tactile click (`scale: 0.97`), focus-visible rings, dynamic arrow translations, and accessible loading state.
-- **Floating Island Navigation**: Dynamic glassmorphism navbar with blur scroll transitions, active section tracking, theme toggle, and a spring-animated mobile menu.
-- **Dynamic Case Study Routes (`/projects/[slug]`)**: Dedicated static case study pages with deep-dive problem/solution breakdowns, architecture notes, key metrics, and next-project routing.
-- **Dual Theme Support**: Flawless dark and light theme switching with `next-themes` and CSS variables, with zero hydration mismatch.
-- **Accessibility & Reduced Motion**: Full compliance with `prefers-reduced-motion` and keyboard accessibility.
-- **Red Scroll Animation (ported from pmharshuu.netlify.app)**: The Services section features a serpentine path that draws itself in signature red (`#ff2a2a`) as you scroll, lighting up each capability card in red sequentially as the path reaches it.
-- **Tally Contact Form**: The contact section is wired to the hosted Tally form (`tally.so/r/QKpNqX`) — exact port of the Vercel flame build — alongside direct email/social channels.
-- **100% SEO Ready**: Correct canonical domain, Google Search Console verification, Open Graph image (`og-cover.png`, 1200×630), Twitter large image cards, favicon + apple-touch-icon + web manifest, JSON-LD `Person` & `WebSite` schemas, dynamic `sitemap.xml`, and `robots.txt`.
-- **Custom 404**: Themed `not-found` page with noindex directives.
-- **Performance**: Three.js scene is dynamically imported client-side (home First Load JS ~328 kB → ~185 kB), and all imagery is optimized WebP.
+| Area | Change |
+|---|---|
+| 🎞️ **Signature scroll animation** | The Services section now has a serpentine path that draws itself on scroll and lights each capability card in sequence — ported from [pmharshuu.netlify.app](https://pmharshuu.netlify.app), recolored from red to the brand **blue → indigo → purple** gradient |
+| 💜 **About, reimagined** | Full-bleed indigo/violet section styled after [the reference build](https://pmharshuu.netlify.app) — Harsh's photo **first** in a hanging frame with a drop-bounce entrance, then the editorial intro, tech logos and glass attribute pills |
+| ✉️ **Real contact form** | Fake mailto form replaced with the exact hosted **[Tally form](https://tally.so/r/QKpNqX)** + direct email/copy, LinkedIn, GitHub and Telegram channels |
+| 📦 **Projects, synced** | Project imagery swapped to optimized **WebP** (~37 KB vs 1.5 MB PNG), ClimaTek naming/live URL aligned, and the showcase now features **[Timepass Premium](https://verceel-timepass.vercel.app)** (pricing & checkout platform) in place of the old bot card |
+| 🧹 **3D removed** | WebGL hero canvas, floating 3D badges, tilt/glare cards and all "3D" copy — gone. Flat, fast, motion-light UI |
+| 🔍 **SEO, complete** | Correct canonical domain, favicons + web manifest, 1200×630 `og-cover.png`, JSON-LD `Person` + `WebSite`, dynamic sitemap/robots, themed `noindex` 404 |
+| ⚡ **Performance** | Home First Load JS **328 kB → 184 kB**, `profile.jpg` **1.37 MB → 68 KB**, ESLint (`next/core-web-vitals`) passing clean |
 
 ---
 
-## 🛠️ Tech Stack
+## 🎞️ Signature scroll animation
 
-- **Framework**: Next.js 14 (App Router, Server Components & Static Site Generation)
-- **Language**: TypeScript with strict compile-time type safety
-- **Styling**: Tailwind CSS with custom Apple design tokens
-- **Motion & Physics**: Framer Motion 11
-- **Icons**: Lucide React
-- **Theming**: `next-themes`
-- **Deployment**: Vercel & Edge CDN
+As you scroll the **Capabilities** section, the path draws itself in the sky→indigo→violet gradient and each card flips to its lit state the moment the path reaches it — the mechanic borrowed from [pmharshuu.netlify.app](https://pmharshuu.netlify.app), re-skinned to this site's palette.
+
+<div align="center">
+  <a href="https://profrolio-next-js-three.vercel.app/#services">
+    <img src="public/og-cover.png" alt="Scroll animation preview — open the live site and scroll to Capabilities" width="80%">
+  </a>
+  <br />
+  <sub>Open the <a href="https://profrolio-next-js-three.vercel.app/#services">live Capabilities section</a> and scroll to see it.</sub>
+</div>
 
 ---
 
-## 📁 Project Architecture
+## 🖼️ Selected work — every card links to its live case study
+
+<table>
+  <tr>
+    <td width="50%">
+      <a href="https://profrolio-next-js-three.vercel.app/projects/cinevood">
+        <img src="public/projects/cinveood.webp" alt="Cinevood — open its case study on the live portfolio" width="100%">
+      </a>
+      <br />
+      <sub><b><a href="https://profrolio-next-js-three.vercel.app/projects/chhath-geet">Chhath Geet</a></b> ·
+      <a href="https://profrolio-next-js-three.vercel.app/projects/cinevood"><b>Cinevood</b></a> ·
+      <a href="https://profrolio-next-js-three.vercel.app/projects/weather-app"><b>ClimaTek</b></a> ·
+      <a href="https://profrolio-next-js-three.vercel.app/projects/timepass-premium"><b>Timepass Premium</b></a> ·
+      <a href="https://profrolio-next-js-three.vercel.app/projects/tarazu"><b>Tarazu</b></a> ·
+      <a href="https://profrolio-next-js-three.vercel.app/projects/nostalgic"><b>Nostalgic</b></a></sub>
+    </td>
+    <td width="50%">
+      <a href="https://climatek.netlify.app">
+        <img src="public/projects/climatek.webp" alt="ClimaTek — open the live weather intelligence dashboard" width="100%">
+      </a>
+      <br />
+      <sub>
+        <b>Live apps:</b>
+        <a href="https://verceel-timepass.vercel.app">Timepass Premium</a> ·
+        <a href="https://chhath-puja-ebon.vercel.app">Chhath Geet</a> ·
+        <a href="https://cinenvood.onrender.com">Cinevood</a> ·
+        <a href="https://climatek.netlify.app">ClimaTek</a> ·
+        <a href="https://tarzau.netlify.app">Tarazu</a> ·
+        <a href="https://nostalgic-eight.vercel.app">Nostalgic</a>
+      </sub>
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  <a href="https://profrolio-next-js-three.vercel.app/#about">
+    <img src="public/profile.webp" alt="Harsh Upadhyay — open the About section on the live site" width="240">
+  </a>
+  <br />
+  <sub><a href="https://profrolio-next-js-three.vercel.app/#about">About Harsh →</a></sub>
+</div>
+
+---
+
+## 🛠 Tech stack
+
+- **Framework** — [Next.js 14](https://nextjs.org) (App Router, SSG case studies)
+- **Language** — [TypeScript](https://www.typescriptlang.org) (strict)
+- **Styling** — [Tailwind CSS](https://tailwindcss.com) with Apple-grade design tokens
+- **Motion** — [Framer Motion](https://www.framer.com/motion/) (stagger, layout pills, scroll-driven path)
+- **Icons** — [Lucide](https://lucide.dev)
+- **Theming** — [next-themes](https://github.com/pacocoursey/next-themes) (dark/light, zero hydration mismatch)
+- **Forms** — [Tally](https://tally.so/r/QKpNqX)
+- **Deploy** — [Vercel](https://vercel.com) Edge CDN
+
+## 📁 Structure
 
 ```
-├── app/
-│   ├── globals.css              # Apple design system, CSS variables & typography
-│   ├── layout.tsx               # Root layout, SEO tags, JSON-LD schema & Google verification
-│   ├── page.tsx                 # Single-page portfolio orchestrator
-│   ├── robots.ts                # Crawler directives
-│   ├── sitemap.ts               # Dynamic sitemap generator (home + case studies)
-│   └── projects/[slug]/         # Dynamic case study case pages
-│       └── page.tsx
-├── components/
-│   ├── Navbar.tsx               # Floating pill navigation with blur scroll transition
-│   ├── MobileMenu.tsx           # Full-screen spring modal menu
-│   ├── Hero.tsx                 # Product launch hero with live dev telemetry
-│   ├── Button.tsx               # Apple-grade tactile button system
-│   ├── SectionHeading.tsx       # Minimalist section header with kicker badge
-│   ├── About.tsx                # Editorial narrative & profile card
-│   ├── SkillCard.tsx            # Interactive tech cards with value propositions
-│   ├── Skills.tsx               # Category-filtered technology grid
-│   ├── FeaturedProject.tsx      # Large cinematic featured showcase
-│   ├── ProjectCard.tsx          # Responsive secondary project cards
-│   ├── ProjectGrid.tsx          # Unified project directory with category tabs
-│   ├── ExperienceTimeline.tsx   # Vertical timeline with animated milestones
-│   ├── ServiceCard.tsx          # Minimalist capability cards with numerals 01-05
-│   ├── Services.tsx             # Capabilities section
-│   ├── Contact.tsx              # Interactive CTA form with client validation
-│   ├── Footer.tsx               # Minimal footer with socials & BackToTop
-│   ├── ThemeToggle.tsx          # Light/Dark animated toggle
-│   ├── ThemeProvider.tsx        # Next-themes wrapper
-│   └── BackToTop.tsx            # Smooth scroll to top button
-├── data/
-│   ├── profile.ts               # Personal bio, stats, location & contact info
-│   ├── projects.ts              # Detailed case study records & metadata
-│   ├── skills.ts                # Structured technology toolkit & categories
-│   ├── experience.ts            # Career journey & academic milestones
-│   ├── services.ts              # Service capabilities & deliverables
-│   └── site.ts                  # Centralized data re-exports
-└── public/
-    ├── profile.jpg              # High-resolution profile portrait
-    └── projects/                # Project visual assets
+app/
+  layout.tsx            # SEO, JSON-LD (Person + WebSite), icons, manifest
+  page.tsx              # Single-page orchestrator
+  not-found.tsx         # Themed 404 (noindex)
+  sitemap.ts / robots.ts
+  projects/[slug]/      # Static case-study routes
+components/             # Hero, About, Services (scroll animation), Contact…
+data/                   # profile, projects, skills, experience, services
+public/                 # og-cover, favicons, profile.webp, project WebP
 ```
 
----
-
-## 🚀 Local Development
+## 🚀 Quick start
 
 ```bash
-# 1. Clone repository
 git clone https://github.com/Dev-Harshupadhyay/Profrolio-next-Js-.git
 cd Profrolio-next-Js-
-
-# 2. Install dependencies
 npm install
-
-# 3. Start development server
-npm run dev
-
-# 4. Build for production (Static SSG)
-npm run build
-npm run start
+npm run dev      # http://localhost:3000
+npm run build    # production SSG build
+npm run lint     # next lint (clean)
 ```
 
----
+## 🙌 Credits & references
 
-## 📄 License & Credits
+- Scroll-activation animation & section layout inspired by [pmharshuu.netlify.app](https://pmharshuu.netlify.app)
+- Project imagery & copy synced from [new-profotilo-flame.vercel.app](https://new-profotilo-flame.vercel.app)
+- Contact form hosted on [Tally](https://tally.so/r/QKpNqX)
+- New project link: [verceel-timepass.vercel.app](https://verceel-timepass.vercel.app)
 
-Designed and built by [Harsh Upadhyay](https://github.com/Dev-Harshupadhyay).  
+## 📄 License
+
+Designed & built by [Harsh Upadhyay](https://github.com/Dev-Harshupadhyay).
 © 2026 Harsh Upadhyay. All rights reserved.
+
+<div align="center">
+  <sub><a href="https://profrolio-next-js-three.vercel.app">profrolio-next-js-three.vercel.app</a> ·
+  <a href="#-whats-in-this-commit--the-solid-upgrade">Back to top ↑</a></sub>
+</div>

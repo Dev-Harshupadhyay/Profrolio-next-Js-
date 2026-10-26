@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ExternalLink, Github, Terminal, Bot, Calculator, Code2 } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Terminal, Clapperboard, Calculator, Code2 } from "lucide-react";
 import { ProjectCaseStudy } from "@/data/projects";
 import { Card3D, Card3DItem } from "./Card3D";
 
@@ -13,7 +13,7 @@ interface ProjectCardProps {
 }
 
 const fallbackIcons: Record<string, React.ReactNode> = {
-  "timepass-bot": <Bot className="w-8 h-8 text-emerald-400" />,
+  "timepass-premium": <Clapperboard className="w-8 h-8 text-rose-400" />,
   tarazu: <Calculator className="w-8 h-8 text-purple-400" />,
   nostalgic: <Code2 className="w-8 h-8 text-indigo-400" />,
 };
@@ -36,7 +36,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <Card3D depth={14} glowColor="rgba(56, 189, 248, 0.25)" className="h-full">
         <div className="group relative flex flex-col justify-between rounded-3xl p-5 sm:p-6 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-2xl border-2 border-neutral-200/90 dark:border-white/10 hover:border-sky-500/50 dark:hover:border-sky-400/50 shadow-xl transition-all duration-300 h-full overflow-hidden">
           <div>
-            {/* Project 3D Visual Preview */}
+            {/* Project Visual Preview */}
             <Card3DItem z={35}>
               <Link href={`/projects/${project.slug}`} className="block group/preview mb-5">
                 <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-neutral-950 border border-neutral-300 dark:border-white/10 shadow-lg">
@@ -72,7 +72,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/preview:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-neutral-950 shadow-md">
-                      3D Case Study →
+                      View Case Study →
                     </span>
                   </div>
                 </div>

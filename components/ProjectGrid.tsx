@@ -21,7 +21,7 @@ export function ProjectGrid() {
     if (activeFilter === "Frontend & UI")
       return p.techStack.includes("React") || p.techStack.includes("Tailwind CSS") || p.techStack.includes("JavaScript");
     if (activeFilter === "Automation")
-      return p.techStack.includes("Python") || p.techStack.includes("Telegram Bot API") || p.techStack.includes("Automation Tools");
+      return p.techStack.includes("Python") || p.techStack.some((t) => t.includes("Telegram")) || p.techStack.includes("Automation Tools");
     return true;
   });
 

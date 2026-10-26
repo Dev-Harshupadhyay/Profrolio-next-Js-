@@ -1,23 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, Sparkles, Terminal, Activity, GitCommit, CheckCircle2 } from "lucide-react";
+import { ArrowDown, Terminal, Activity, CheckCircle2 } from "lucide-react";
 import { Button } from "./Button";
 import { Card3D, Card3DItem } from "./Card3D";
 import { profile } from "@/data/profile";
-
-// Three.js scene — loaded client-side after hydration to keep the
-// initial bundle light (moves ~150kB of three.js out of first paint JS)
-const Hero3DCanvas = dynamic(
-  () => import("./Hero3DCanvas").then((m) => m.Hero3DCanvas),
-  { ssr: false }
-);
-
-const Floating3DObjects = dynamic(
-  () => import("./Floating3DObjects").then((m) => m.Floating3DObjects),
-  { ssr: false }
-);
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -50,13 +37,7 @@ export function Hero() {
       id="hero"
       className="relative min-h-[95vh] sm:min-h-screen flex flex-col justify-center items-center pt-28 pb-16 px-4 sm:px-6 max-w-6xl mx-auto overflow-hidden"
     >
-      {/* 3D WebGL Holographic Particle Scene */}
-      <Hero3DCanvas />
-
-      {/* 3D Floating Badges & Geometry */}
-      <Floating3DObjects />
-
-      {/* Ambient 3D Depth Glow */}
+      {/* Ambient Depth Glow */}
       <div
         className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] h-[350px] bg-gradient-to-b from-sky-500/15 via-blue-600/10 to-indigo-600/5 blur-3xl pointer-events-none -z-10 rounded-full"
         aria-hidden="true"
@@ -99,7 +80,7 @@ export function Hero() {
           {profile.tagline}
         </motion.p>
 
-        {/* Hero CTA 3D Buttons */}
+        {/* Hero CTA Buttons */}
         <motion.div
           variants={itemVariants}
           className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 w-full"
@@ -111,7 +92,7 @@ export function Hero() {
             arrow
             confettiEffect
           >
-            Explore 3D Work
+            Explore My Work
           </Button>
 
           <Button
@@ -123,14 +104,14 @@ export function Hero() {
           </Button>
         </motion.div>
 
-        {/* 3D Interactive Telemetry Workstation Card */}
+        {/* Interactive Telemetry Workstation Card */}
         <motion.div
           variants={itemVariants}
           className="mt-14 sm:mt-16 w-full max-w-4xl"
         >
           <Card3D depth={10} glowColor="rgba(56, 189, 248, 0.25)">
             <div className="relative rounded-3xl p-5 sm:p-7 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-2xl border-2 border-neutral-200/80 dark:border-white/15 shadow-2xl text-left overflow-hidden">
-              {/* Top Bar with 3D Pop */}
+              {/* Top Bar */}
               <Card3DItem z={25}>
                 <div className="flex items-center justify-between pb-4 mb-5 border-b border-neutral-200 dark:border-white/10 text-xs">
                   <div className="flex items-center gap-2">
@@ -140,7 +121,7 @@ export function Hero() {
                       <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
                     </div>
                     <span className="font-mono font-semibold text-neutral-600 dark:text-neutral-300 ml-2">
-                      harsh@workstation ~ 3d-accelerated-mode
+                      harsh@workstation ~ production-mode
                     </span>
                   </div>
                   <div className="hidden sm:flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
@@ -179,11 +160,11 @@ export function Hero() {
                 <div className="mt-5 pt-4 border-t border-neutral-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-neutral-600 dark:text-neutral-400">
                   <div className="flex items-center gap-2 font-mono">
                     <Terminal className="w-3.5 h-3.5 text-sky-500" />
-                    <span>Stack: Next.js 14 · React · TypeScript · Node.js · Three.js</span>
+                    <span>Stack: Next.js 14 · React · TypeScript · Node.js</span>
                   </div>
                   <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>60fps WebGL &amp; 3D Motion</span>
+                    <span>Silky-smooth 60fps Motion</span>
                   </div>
                 </div>
               </Card3DItem>

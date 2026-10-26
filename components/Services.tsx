@@ -13,8 +13,8 @@ import { services } from "@/data/services";
 
 /**
  * Services section with the red scroll animation ported from pmharshuu.netlify.app:
- * a serpentine path draws in red (#ff2a2a) as you scroll, and each capability
- * card lights up red sequentially when the path reaches it.
+ * a serpentine path draws in a blue→purple gradient as you scroll, and each
+ * capability card lights up in blue/purple sequentially when the path reaches it.
  */
 export function Services() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -32,7 +32,7 @@ export function Services() {
     restDelta: 0.001,
   });
 
-  // Activate cards one-by-one as the scroll progress (and red path) passes them
+  // Activate cards one-by-one as the scroll progress (and colored path) passes them
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const n = services.length;
     let count = 0;
@@ -57,13 +57,20 @@ export function Services() {
       />
 
       <div className="relative mt-14 sm:mt-16">
-        {/* Serpentine dashed path (desktop) — gray base + red draw-on-scroll overlay */}
+        {/* Serpentine dashed path (desktop) — gray base + blue→purple draw-on-scroll overlay */}
         <svg
           className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0"
           viewBox="0 0 1000 1400"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
+          <defs>
+            <linearGradient id="scrollPathGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#38bdf8" />
+              <stop offset="50%" stopColor="#6366f1" />
+              <stop offset="100%" stopColor="#8b5cf6" />
+            </linearGradient>
+          </defs>
           <path
             d="M 500,0 C 500,140 240,120 240,280 C 240,440 760,420 760,580 C 760,740 240,720 240,880 C 240,1040 760,1020 760,1180 C 760,1300 520,1310 500,1400"
             fill="none"
@@ -74,7 +81,7 @@ export function Services() {
           <motion.path
             d="M 500,0 C 500,140 240,120 240,280 C 240,440 760,420 760,580 C 760,740 240,720 240,880 C 240,1040 760,1020 760,1180 C 760,1300 520,1310 500,1400"
             fill="none"
-            stroke="#ff2a2a"
+            stroke="url(#scrollPathGradient)"
             strokeWidth="3.5"
             strokeLinecap="round"
             style={{ pathLength: pathProgress }}
