@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
+import { Expertise } from "@/components/Expertise";
 import { Skills } from "@/components/Skills";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <main className="flex-1 w-full relative z-10">
         <Hero />
         <About />
+        <Expertise />
         <Skills />
         <ProjectGrid />
         <ExperienceTimeline />
