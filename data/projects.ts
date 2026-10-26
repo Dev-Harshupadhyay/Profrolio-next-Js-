@@ -130,7 +130,7 @@ export const projects: ProjectCaseStudy[] = [
       { value: "CRUD", label: "Complete Admin CMS" },
       { value: "Live", label: "Production Deployed" },
     ],
-    image: "/projects/cinveood.png",
+    image: "/projects/cinveood.webp",
     featured: true,
     highlight: "Full MERN Stack · Admin CMS",
     year: "2025",
@@ -142,13 +142,13 @@ export const projects: ProjectCaseStudy[] = [
   {
     id: "weather",
     slug: "weather-app",
-    title: "Weather App",
+    title: "ClimaTek",
     subtitle: "Real-Time Atmospheric Intelligence",
-    tagline: "Live meteorological data, geolocation, and responsive forecasts",
+    tagline: "Live weather intelligence with forecasts, UV index, and air quality data",
     summary:
-      "A fast, responsive meteorological dashboard delivering live weather metrics, multi-day forecasts, atmospheric humidity, wind speeds, and smart location detection.",
+      "A real-time weather intelligence dashboard delivering live weather metrics, multi-day forecasts, UV index, air quality data, atmospheric humidity, wind speeds, and smart location detection.",
     description:
-      "Built to provide crisp, distraction-free weather telemetry, this app connects to live meteorological APIs to present hourly temperature trends, humidity levels, wind vectors, and UV conditions with zero visual clutter.",
+      "ClimaTek (Atmosphera) is a weather intelligence dashboard built to practice working with third-party APIs and presenting live data in a visually engaging way. It connects to live meteorological APIs to present hourly temperature trends, humidity levels, wind vectors, UV conditions, and air quality with zero visual clutter.",
     problem:
       "Standard weather portals are often filled with distracting sponsored articles, slow radar animations, and inaccurate location defaults.",
     solution:
@@ -185,13 +185,13 @@ export const projects: ProjectCaseStudy[] = [
       { value: "100%", label: "Mobile Touch Ready" },
       { value: "0", label: "External Bloat" },
     ],
-    image: "/projects/climatek.png",
+    image: "/projects/climatek.webp",
     featured: true,
     highlight: "Live Meteorological API",
     year: "2025",
     role: "Frontend Developer",
     githubUrl: "https://github.com/Dev-Harshupadhyay/Weather-app",
-    liveUrl: "https://weather-j82w.onrender.com",
+    liveUrl: "https://climatek.netlify.app",
     gradient: "from-cyan-500/20 via-teal-500/10 to-transparent",
   },
   {
@@ -286,7 +286,7 @@ export const projects: ProjectCaseStudy[] = [
       { value: "100/100", label: "Lighthouse Score" },
       { value: "0ms", label: "Eval Latency" },
     ],
-    image: "/projects/tarazu.png",
+    image: "/projects/tarazu.webp",
     featured: false,
     highlight: "Tactile Minimalist Tool",
     year: "2025",

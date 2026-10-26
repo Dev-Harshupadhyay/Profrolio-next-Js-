@@ -153,33 +153,71 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
                       <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-8 bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white overflow-hidden">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shadow-lg">
-                              <Music className="w-4 h-4" />
+                            <div
+                              className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg ${
+                                project.id === "chhath-geet"
+                                  ? "bg-amber-500/20 text-amber-400"
+                                  : "bg-sky-500/20 text-sky-400"
+                              }`}
+                            >
+                              {project.id === "chhath-geet" ? (
+                                <Music className="w-4 h-4" />
+                              ) : (
+                                <Sparkles className="w-4 h-4" />
+                              )}
                             </div>
-                            <span className="font-bold text-sm">Chhath Geet Web Audio 3D</span>
+                            <span className="font-bold text-sm">
+                              {project.title} — {project.year}
+                            </span>
                           </div>
-                          <span className="text-xs font-mono text-amber-400 font-bold">106 Songs</span>
-                        </div>
-
-                        <div className="my-auto flex flex-col items-center justify-center text-center space-y-3">
-                          <div className="w-16 h-16 rounded-full bg-amber-500/10 border-2 border-amber-500/40 flex items-center justify-center text-amber-400 shadow-[0_0_30px_rgba(245,158,11,0.3)] transition-transform group-hover/image:scale-110">
-                            <Play className="w-7 h-7 fill-current ml-1" />
-                          </div>
-                          <span className="text-xs text-neutral-300 font-semibold">
-                            Media Session API · 37 Artists · 12 Playlists
+                          <span
+                            className={`text-xs font-mono font-bold ${
+                              project.id === "chhath-geet"
+                                ? "text-amber-400"
+                                : "text-sky-400"
+                            }`}
+                          >
+                            {project.highlight}
                           </span>
                         </div>
 
-                        {/* Simulated Audio 3D Waveform */}
-                        <div className="flex items-center gap-1.5 justify-center">
-                          {[40, 70, 30, 90, 60, 100, 45, 80, 50, 95, 30, 65, 85, 40].map((h, i) => (
-                            <div
-                              key={i}
-                              style={{ height: `${h * 0.28}px` }}
-                              className="w-1.5 bg-gradient-to-t from-amber-500 to-amber-300 rounded-full shadow-sm"
-                            />
-                          ))}
+                        <div className="my-auto flex flex-col items-center justify-center text-center space-y-3">
+                          <div
+                            className={`w-16 h-16 rounded-full border-2 flex items-center justify-center shadow-[0_0_30px_rgba(56,189,248,0.25)] transition-transform group-hover/image:scale-110 ${
+                              project.id === "chhath-geet"
+                                ? "bg-amber-500/10 border-amber-500/40 text-amber-400 shadow-[0_0_30px_rgba(245,158,11,0.3)]"
+                                : "bg-sky-500/10 border-sky-500/40 text-sky-400"
+                            }`}
+                          >
+                            {project.id === "chhath-geet" ? (
+                              <Play className="w-7 h-7 fill-current ml-1" />
+                            ) : (
+                              <span className="text-2xl font-black">
+                                {project.title.charAt(0)}
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-xs text-neutral-300 font-semibold">
+                            {project.subtitle}
+                          </span>
                         </div>
+
+                        {project.id === "chhath-geet" ? (
+                          /* Simulated Audio 3D Waveform (Chhath Geet theme) */
+                          <div className="flex items-center gap-1.5 justify-center">
+                            {[40, 70, 30, 90, 60, 100, 45, 80, 50, 95, 30, 65, 85, 40].map((h, i) => (
+                              <div
+                                key={i}
+                                style={{ height: `${h * 0.28}px` }}
+                                className="w-1.5 bg-gradient-to-t from-amber-500 to-amber-300 rounded-full shadow-sm"
+                              />
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="text-[11px] font-mono text-neutral-400 truncate text-center">
+                            {project.techStack.join(" · ")}
+                          </div>
+                        )}
                       </div>
                     )}
 

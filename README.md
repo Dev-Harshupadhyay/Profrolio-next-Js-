@@ -9,7 +9,7 @@
 
 An Apple-inspired developer portfolio designed for **Harsh Upadhyay** — Full-Stack Web Developer, React & Next.js specialist, and BCA student from India. Engineered from the ground up for minimalism, tactile feedback, sub-second performance, fluid micro-interactions, dark/light theme versatility, and comprehensive SEO.
 
-- **Live URL**: [https://profrolio-next-js.vercel.app](https://profrolio-next-js.vercel.app)
+- **Live URL**: [https://profrolio-next-js-three.vercel.app](https://profrolio-next-js-three.vercel.app)
 - **GitHub**: [@Dev-Harshupadhyay](https://github.com/Dev-Harshupadhyay)
 - **LinkedIn**: [Harsh Upadhyay](https://www.linkedin.com/in/harsh-upadhyay-a014783b4)
 - **Contact**: `harsh48227@gmail.com` | Telegram: `@TIMEPASSQ_BOT`
@@ -24,7 +24,11 @@ An Apple-inspired developer portfolio designed for **Harsh Upadhyay** — Full-S
 - **Dynamic Case Study Routes (`/projects/[slug]`)**: Dedicated static case study pages with deep-dive problem/solution breakdowns, architecture notes, key metrics, and next-project routing.
 - **Dual Theme Support**: Flawless dark and light theme switching with `next-themes` and CSS variables, with zero hydration mismatch.
 - **Accessibility & Reduced Motion**: Full compliance with `prefers-reduced-motion` and keyboard accessibility.
-- **100% SEO Ready**: Google Search Console verification meta tag, Open Graph cards, Twitter large image cards, JSON-LD Person schema, dynamic `sitemap.xml`, and `robots.txt`.
+- **Red Scroll Animation (ported from pmharshuu.netlify.app)**: The Services section features a serpentine path that draws itself in signature red (`#ff2a2a`) as you scroll, lighting up each capability card in red sequentially as the path reaches it.
+- **Tally Contact Form**: The contact section is wired to the hosted Tally form (`tally.so/r/QKpNqX`) — exact port of the Vercel flame build — alongside direct email/social channels.
+- **100% SEO Ready**: Correct canonical domain, Google Search Console verification, Open Graph image (`og-cover.png`, 1200×630), Twitter large image cards, favicon + apple-touch-icon + web manifest, JSON-LD `Person` & `WebSite` schemas, dynamic `sitemap.xml`, and `robots.txt`.
+- **Custom 404**: Themed `not-found` page with noindex directives.
+- **Performance**: Three.js scene is dynamically imported client-side (home First Load JS ~328 kB → ~185 kB), and all imagery is optimized WebP.
 
 ---
 

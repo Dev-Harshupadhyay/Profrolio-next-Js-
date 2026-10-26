@@ -7,12 +7,10 @@ import {
   Send,
   Linkedin,
   Github,
-  CheckCircle2,
   Copy,
   Check,
-  ArrowRight,
-  MessageSquare,
   Sparkles,
+  Clock,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { Button } from "./Button";
@@ -20,16 +18,12 @@ import { Card3D, Card3DItem } from "./Card3D";
 import { profile } from "@/data/profile";
 import { playTactileClick } from "@/lib/sound";
 
+/** Contact form hosted on Tally (ported exactly from the Vercel flame build) */
+const TALLY_URL = "https://tally.so/r/QKpNqX";
+
 export function Contact() {
   const shouldReduceMotion = useReducedMotion();
   const [copied, setCopied] = useState(false);
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [statusMessage, setStatusMessage] = useState("");
 
   const copyEmail = () => {
     playTactileClick();
@@ -44,46 +38,8 @@ export function Contact() {
         origin: { y: 0.85 },
         colors: ["#38bdf8", "#818cf8"],
       });
-    } catch (e) {}
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    playTactileClick();
-
-    if (!formState.name || !formState.email || !formState.message) {
-      setStatus("error");
-      setStatusMessage("Please fill out all fields.");
-      return;
-    }
-
-    setStatus("loading");
-
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 800));
-      setStatus("success");
-      setStatusMessage("Message prepared! Opening your mail client...");
-
-      try {
-        confetti({
-          particleCount: 50,
-          spread: 80,
-          origin: { y: 0.6 },
-          colors: ["#38bdf8", "#34d399", "#818cf8", "#f59e0b"],
-        });
-      } catch (e) {}
-
-      const mailtoUrl = `mailto:${profile.email}?subject=3D Portfolio Project Inquiry from ${encodeURIComponent(
-        formState.name
-      )}&body=${encodeURIComponent(
-        `Hi Harsh,\n\n${formState.message}\n\nBest,\n${formState.name} (${formState.email})`
-      )}`;
-      window.location.href = mailtoUrl;
-
-      setFormState({ name: "", email: "", message: "" });
-    } catch (err) {
-      setStatus("error");
-      setStatusMessage("Something went wrong. Please email directly.");
+    } catch (e) {
+      // Gracefully ignore confetti failure
     }
   };
 
@@ -216,95 +172,46 @@ export function Contact() {
               </Card3DItem>
             </div>
 
-            {/* Right Column: 3D Form */}
+            {/* Right Column: Tally CTA (ported from flame build) */}
             <div className="lg:col-span-7">
               <Card3DItem z={30}>
-                <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-                  <h3 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-white mb-2">
-                    Send Direct Message
+                <motion.div
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
+                  className="flex flex-col items-center text-center p-8 sm:p-10 rounded-3xl bg-neutral-50/90 dark:bg-neutral-800/60 border-2 border-dashed border-neutral-300 dark:border-white/15 shadow-inner"
+                >
+                  <div className="w-20 h-20 rounded-full bg-neutral-900 dark:bg-white flex items-center justify-center mx-auto shadow-xl mb-6">
+                    <Mail className="w-10 h-10 text-white dark:text-neutral-900" />
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-neutral-900 dark:text-white mb-3">
+                    Ready to start a project?
                   </h3>
-
-                  <div>
-                    <label
-                      htmlFor="contact-name"
-                      className="block text-xs font-bold text-neutral-700 dark:text-neutral-300 mb-1.5"
-                    >
-                      Your Name
-                    </label>
-                    <input
-                      id="contact-name"
-                      type="text"
-                      required
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      placeholder="e.g. Alex Sharma"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white dark:bg-neutral-800/80 border-2 border-neutral-200 dark:border-white/10 text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-sky-500 text-sm shadow-inner transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="contact-email"
-                      className="block text-xs font-bold text-neutral-700 dark:text-neutral-300 mb-1.5"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      id="contact-email"
-                      type="email"
-                      required
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      placeholder="alex@example.com"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white dark:bg-neutral-800/80 border-2 border-neutral-200 dark:border-white/10 text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-sky-500 text-sm shadow-inner transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="contact-message"
-                      className="block text-xs font-bold text-neutral-700 dark:text-neutral-300 mb-1.5"
-                    >
-                      Project Details / Message
-                    </label>
-                    <textarea
-                      id="contact-message"
-                      required
-                      rows={4}
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Tell me about your project, engineering role, or automation ideas..."
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white dark:bg-neutral-800/80 border-2 border-neutral-200 dark:border-white/10 text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-sky-500 text-sm shadow-inner transition-all resize-none"
-                    />
-                  </div>
-
-                  {statusMessage && (
-                    <div
-                      className={`p-3.5 rounded-xl text-xs font-semibold flex items-center gap-2 ${
-                        status === "success"
-                          ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
-                          : "bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/30"
-                      }`}
-                    >
-                      {status === "success" ? (
-                        <CheckCircle2 className="w-4 h-4 shrink-0" />
-                      ) : null}
-                      <span>{statusMessage}</span>
-                    </div>
-                  )}
+                  <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-md mb-8">
+                    Fill out the quick project brief on Tally — share your idea,
+                    timeline, and requirements. I&apos;ll get back to you within 24 hours
+                    to discuss next steps.
+                  </p>
 
                   <Button
-                    type="submit"
+                    href={TALLY_URL}
+                    external
                     variant="glow"
                     size="lg"
-                    loading={status === "loading"}
                     arrow
                     confettiEffect
-                    className="w-full mt-2"
+                    className="min-w-[220px]"
                   >
-                    Send Message via Mail
+                    Get in Touch
                   </Button>
-                </form>
+
+                  <p className="mt-4 text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>Opens tally.so in a new tab</span>
+                  </p>
+                </motion.div>
               </Card3DItem>
             </div>
           </div>

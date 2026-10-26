@@ -42,6 +42,14 @@ export const metadata: Metadata = {
   authors: [{ name: profile.name, url: profile.socials.github }],
   creator: profile.name,
   alternates: { canonical: "/" },
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     url: profile.url,
@@ -51,10 +59,10 @@ export const metadata: Metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "/profile.jpg",
-        width: 800,
-        height: 800,
-        alt: `${profile.name} — Full-Stack Developer`,
+        url: "/og-cover.png",
+        width: 1200,
+        height: 630,
+        alt: `${profile.name} — Full-Stack Web Developer`,
       },
     ],
   },
@@ -62,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profile.name} — ${profile.headline}`,
     description: profile.tagline,
-    images: ["/profile.jpg"],
+    images: ["/og-cover.png"],
     creator: `@${profile.handle}`,
   },
   robots: {
@@ -89,7 +97,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const jsonLd = {
+const jsonLdPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
@@ -121,6 +129,21 @@ const jsonLd = {
   ],
 };
 
+const jsonLdWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: `${profile.name} Portfolio`,
+  alternateName: profile.name,
+  url: profile.url,
+  description: `${profile.name} — ${profile.headline}. ${profile.tagline}`,
+  inLanguage: "en-IN",
+  author: {
+    "@type": "Person",
+    name: profile.name,
+    url: profile.socials.github,
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -135,7 +158,11 @@ export default function RootLayout({
       <body className="antialiased font-sans">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }}
         />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}

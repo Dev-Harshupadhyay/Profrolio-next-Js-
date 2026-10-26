@@ -52,7 +52,7 @@ export const profile: Profile = {
     "When I'm not writing code, I'm exploring new web standards, optimizing developer workflows, or building open-source tools with a streak of daily commits.",
   ],
   quote: "Code is like humor. When you have to explain it, it's bad.",
-  url: "https://profrolio-next-js.vercel.app",
+  url: "https://profrolio-next-js-three.vercel.app",
   email: "harsh48227@gmail.com",
   location: "Faridabad, Haryana, India",
   country: "India",

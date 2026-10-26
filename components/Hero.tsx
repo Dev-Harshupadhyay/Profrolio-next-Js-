@@ -1,12 +1,23 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, Sparkles, Terminal, Activity, GitCommit, CheckCircle2 } from "lucide-react";
 import { Button } from "./Button";
 import { Card3D, Card3DItem } from "./Card3D";
-import { Hero3DCanvas } from "./Hero3DCanvas";
-import { Floating3DObjects } from "./Floating3DObjects";
 import { profile } from "@/data/profile";
+
+// Three.js scene — loaded client-side after hydration to keep the
+// initial bundle light (moves ~150kB of three.js out of first paint JS)
+const Hero3DCanvas = dynamic(
+  () => import("./Hero3DCanvas").then((m) => m.Hero3DCanvas),
+  { ssr: false }
+);
+
+const Floating3DObjects = dynamic(
+  () => import("./Floating3DObjects").then((m) => m.Floating3DObjects),
+  { ssr: false }
+);
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();

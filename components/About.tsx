@@ -106,7 +106,7 @@ export function About() {
               <Card3DItem z={35}>
                 <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-300 dark:border-white/10 shadow-lg">
                   <Image
-                    src="/profile.jpg"
+                    src="/profile.webp"
                     alt="Harsh Upadhyay"
                     fill
                     sizes="(max-width: 768px) 100vw, 384px"
